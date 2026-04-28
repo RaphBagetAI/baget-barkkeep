@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>BarkKeep - Austin Dog-Walker Marketplace</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&family=Inter&display=swap');
+
+        :root {
+            --bg-color: #0D0D0D;
+            --text-color: #F5F0E8;
+            --accent-color: #B8956A;
+            --card-bg: #1A1A1A;
+            --border-radius: 2px;
+            --font-header: 'Cormorant Garamond', serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--font-body);
+            line-height: 1.6;
+        }
+
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        header {
+            padding: 1rem 2rem;
+            border-bottom: 1px solid #333;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            font-family: var(--font-header);
+            font-weight: 700;
+            font-size: 2rem;
+            letter-spacing: 2px;
+            margin: 0;
+            color: var(--accent-color);
+        }
+
+        main {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 4rem 1rem 6rem 1rem;
+            border-radius: var(--border-radius);
+            margin-bottom: 3rem;
+        }
+
+        .hero h2 {
+            font-family: var(--font-header);
+            font-weight: 700;
+            font-size: 3.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 600px;
+            margin: 0 auto 2rem auto;
+            color: #ccc;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            background-color: var(--accent-color);
+            color: var(--bg-color);
+            border: none;
+            padding: 1.25rem 2.5rem;
+            font-size: 1.2rem;
+            font-family: var(--font-header);
+            font-weight: 700;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            box-shadow: 0 0 30px rgba(184,149,106,0.1);
+            transition: box-shadow 0.3s ease, transform 0.2s ease;
+            text-transform: uppercase;
+        }
+
+        .btn:hover,
+        .btn:focus {
+            box-shadow: 0 0 40px rgba(184,149,106,0.4);
+            outline: none;
+            transform: translateY(-2px);
+        }
+
+        section.form-section {
+            background: var(--card-bg);
+            padding: 2rem 2.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: 0 0 30px rgba(184,149,106,0.1);
+            max-width: 600px;
+            margin: 0 auto 4rem;
+        }
+
+        section.form-section h3 {
+            font-family: var(--font-header);
+            font-size: 2.25rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        label {
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        input[type=text],
+        input[type=email],
+        select {
+            padding: 0.75rem 1rem;
+            border-radius: var(--border-radius);
+            border: 1px solid #444;
+            background-color: #222;
+            color: var(--text-color);
+            font-family: var(--font-body);
+            font-size: 1rem;
+        }
+
+        input[type=text]:focus,
+        input[type=email]:focus,
+        select:focus {
+            outline: 2px solid var(--accent-color);
+            border: none;
+            background-color: #1a1a1a;
+            color: var(--accent-color);
+        }
+
+        button.submit-btn {
+            background-color: var(--accent-color);
+            color: var(--bg-color);
+            border: none;
+            font-weight: 700;
+            padding: 1rem;
+            font-size: 1.2rem;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            box-shadow: 0 0 30px rgba(184,149,106,0.1);
+            transition: box-shadow 0.3s ease, transform 0.2s ease;
+            text-transform: uppercase;
+        }
+
+        button.submit-btn:hover,
+        button.submit-btn:focus {
+            box-shadow: 0 0 40px rgba(184,149,106,0.4);
+            outline: none;
+            transform: translateY(-2px);
+        }
+
+        .thank-you {
+            text-align: center;
+            font-size: 1.25rem;
+            color: var(--accent-color);
+            margin-top: 1rem;
+            font-weight: 600;
+        }
+
+        .section-description {
+            max-width: 640px;
+            margin: 0 auto 2.5rem auto;
+            font-size: 1.1rem;
+            color: #bbb;
+            line-height: 1.5;
+            text-align: center;
+        }
+
+        @media (max-width: 600px) {
+            .hero h2 {
+                font-size: 2.25rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            main {
+                margin: 1rem;
+                padding: 0;
+            }
+
+            section.form-section {
+                margin: 0 1rem 3rem 1rem;
+                padding: 1.5rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>BarkKeep</h1>
+    </header>
+    <main>
+        <section class="hero" aria-label="BarkKeep landing hero">
+            <h2>Professional Dog-Walking Marketplace for Austin</h2>
+            <p>Keep 100% of your walk fees or hire elite local walkers in Travis County without the 25% platform tax.</p>
+            <div class="hero-buttons">
+                <button class="btn" id="walkerPath">Keep your 25%</button>
+                <button class="btn" id="ownerPath">Hire Local</button>
+            </div>
+        </section>
+
+        <section id="formSection" class="form-section" aria-label="Lead capture form" style="display:none;">
+            <h3>Get Started with BarkKeep</h3>
+            <p class="section-description" id="formDescription">Join as a elite walker or hire your local walker today.</p>
+            <form id="leadForm">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" required />
+
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required />
+
+                <label for="interest">I am a</label>
+                <select id="interest" name="interest" required>
+                    <option value="walker">Walker (I want to keep 100% of my fees)</option>
+                    <option value="owner">Dog Owner (I want to hire local walkers)</option>
+                </select>
+
+                <button type="submit" class="submit-btn">Get Started</button>
+            </form>
+            <p class="thank-you" id="thankYouMessage" style="display:none;">Thanks — we'll be in touch soon.</p>
+            <p class="thank-you" id="errorMessage" style="display:none; color:#d46a6a;">Oops! Something went wrong. Please try again.</p>
+        </section>
+    </main>
+
+    <script>
+        const walkerBtn = document.getElementById('walkerPath');
+        const ownerBtn = document.getElementById('ownerPath');
+        const formSection = document.getElementById('formSection');
+        const form = document.getElementById('leadForm');
+        const formDescription = document.getElementById('formDescription');
+        const thankYouMessage = document.getElementById('thankYouMessage');
+        const errorMessage = document.getElementById('errorMessage');
+        const interestSelect = document.getElementById('interest');
+
+        walkerBtn.addEventListener('click', () => {
+            formSection.style.display = 'block';
+            formDescription.textContent = 'Join as an elite walker and keep 100% of your fees with BarkKeep.';
+            interestSelect.value = 'walker';
+            window.scrollTo({ top: formSection.offsetTop, behavior: 'smooth' });
+            thankYouMessage.style.display = 'none';
+            errorMessage.style.display = 'none';
+        });
+
+        ownerBtn.addEventListener('click', () => {
+            formSection.style.display = 'block';
+            formDescription.textContent = 'Hire trusted local walkers in Travis County without platform fees.';
+            interestSelect.value = 'owner';
+            window.scrollTo({ top: formSection.offsetTop, behavior: 'smooth' });
+            thankYouMessage.style.display = 'none';
+            errorMessage.style.display = 'none';
+        });
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            thankYouMessage.style.display = 'none';
+            errorMessage.style.display = 'none';
+
+            const data = {
+                name: form.name.value.trim(),
+                email: form.email.value.trim(),
+                interest: form.interest.value
+            };
+
+            try {
+                const response = await fetch('https://app.baget.ai/api/public/databases/69a851d6-e975-4cbb-8701-637dc514c57f/rows', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ data })
+                });
+
+                if (response.ok) {
+                    thankYouMessage.style.display = 'block';
+                    form.reset();
+                } else {
+                    throw new Error('Failed to submit');
+                }
+            } catch (error) {
+                errorMessage.style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>
